@@ -16,6 +16,11 @@ colorArray[8] = "Purple"
 colorArray[9] = "Bronw"
 colorArray[10] = "Cyan"
 colorArray[11] = "Lime"
+
+var docs = []
+docs[0] = "C:\Users\brock\Coding\Text.exe\Actions path\Start.txt"
+docs[1] = "C:\Users\brock\Coding\Text.exe\Actions path\Start\Admin\What do you do.txt"
+docs[2] = ""
 //
 
 // This is where the html links go
@@ -61,48 +66,42 @@ function btn4(){
 function btn5(){
     chosenAction = 5
     click()
-    }
+}
 
 function click(){
-    console.log(chosenAction);
-    switch(chosenAction){
-        case chosenAction === 1:
-            if (mapImage = 0){
-                mapImage = 1
-            }
-            break
-            
-        case chosenAction === 2:
-            if (mapImage = 0){
-                mapImage = 1
-                    
-            }
-            break
-            
-        case chosenAction === 3:
-                if (mapImage = 0){
-                    mapImage = 1
-                }
-                break
-                    
-        case chosenAction === 5:
-            if (mapImage = 0){
-                mapImage = 1
-            }
-        break
-                        
-        case chosenAction === 5:
-            if (mapImage = 0){
-                mapImage = 1
-            }
-        break
-                            
-        default:
-            console.log("Nothing");
+    if(chosenAction === 1){
+        if(mapImage === 0){
+            mapImage = 1
         }
-        console.log(chosenAction);
+    }
+    
+    if(chosenAction === 2){
+        if(mapImage === 0){
+            mapImage = 1
+        }
+    }
+    
+    if(chosenAction === 3){
+        if(mapImage === 0){
+            mapImage = 1
+        }
+    }
+    
+    if(chosenAction === 4){
+        if(mapImage === 0){
+            mapImage = 1
+        }
+    }
+    
+    if(chosenAction === 5){
+        if(mapImage === 0){
+            mapImage = 1
+        }
+    }
+    var lines = doc.split(/\r?\n/)
+    
         
-        image.src = "images/" + imageArray[mapImage];
+    image.src = "images/" + imageArray[mapImage];
     // output.innerHTML = map[mapLocation];
 }
 
