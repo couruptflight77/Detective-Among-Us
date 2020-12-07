@@ -17,26 +17,28 @@ colorArray[9] = "Bronw"
 colorArray[10] = "Cyan"
 colorArray[11] = "Lime"
 
-var docs = []
-docs[0] = "C:\Users\brock\Coding\Text.exe\Actions path\Start.txt"
-docs[1] = "C:\Users\brock\Coding\Text.exe\Actions path\Start\Admin\What do you do.txt"
-docs[2] = ""
+var bn1 = ["start", "Go to Admin"]
+var bn2 = ["start", "Go to Weapons"]
+var bn3 = ["start", "Go to Security"]
+var bn4 = ["start", "Go to Storage"]
+var bn5 = ["start", "Go to Electrical"]
 //
 
 // This is where the html links go
 var image = document.querySelector("img");
 var output = document.querySelector("#output");
 var input = document.querySelector("#input");
-//
-
-// This is where the different actions will go 5 per turn
-var test = "first"
-var action = [test]
+var button1 = document.querySelector("#btn1");
+var button2 = document.querySelector("#btn2");
+var button3 = document.querySelector("#btn3");
+var button4 = document.querySelector("#btn4");
+var button5 = document.querySelector("#btn5");
 //
 
 // All the different vars
 var mapImage = 0
 var chosenAction = 0
+var bns = 0
 //
 
 // This is where the randomised color selector will go based on what colors arn't being used
@@ -72,39 +74,51 @@ function click(){
     if(chosenAction === 1){
         if(mapImage === 0){
             mapImage = 1
+            bns = 1
         }
     }
     
     if(chosenAction === 2){
         if(mapImage === 0){
             mapImage = 1
+            bns = 1
         }
     }
     
     if(chosenAction === 3){
         if(mapImage === 0){
             mapImage = 1
+            bns = 1
         }
     }
     
     if(chosenAction === 4){
         if(mapImage === 0){
             mapImage = 1
+            bns = 1
         }
     }
     
     if(chosenAction === 5){
         if(mapImage === 0){
             mapImage = 1
+            bns = 1
         }
     }
-    var lines = doc.split(/\r?\n/)
+    document.querySelector('#btn1').textContent = bn1[bns]
+    document.querySelector('#btn2').textContent = bn2[bns]
+    document.querySelector('#btn3').textContent = bn3[bns]
+    document.querySelector('#btn4').textContent = bn1[bns]
+    document.querySelector('#btn5').textContent = bn1[bns]
     
         
     image.src = "images/" + imageArray[mapImage];
-    // output.innerHTML = map[mapLocation];
 }
 
-
+document.querySelector('#btn1').textContent = bn1[bns]
+document.querySelector('#btn2').textContent = bn2[bns]
+document.querySelector('#btn3').textContent = bn3[bns]
+document.querySelector('#btn4').textContent = bn1[bns]
+document.querySelector('#btn5').textContent = bn1[bns]
 image.src = "images/" + imageArray[mapImage];
 // output.innerHTML = actions[actionsPossible];
