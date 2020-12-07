@@ -1,6 +1,30 @@
 body{
-    background-color: black;
+    background-color: limegreen;
 }
+
 div{
-    color: green;
+    color: blue;
+    font-size: 2cm;
+    position: relative;
+    left: 27%;
+}
+
+#image {
+    position: relative;
+    left: 32%;
+}
+
+#what{
+    position: relative;
+    left: 41%;
+    font-size: 1cm;
+}
+
+input{
+    position: relative;
+    left: 43%;
+}
+button{
+    position: relative;
+    left: 36%;
 }
