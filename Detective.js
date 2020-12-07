@@ -46,18 +46,18 @@ var button2 = document.querySelector("#btn2");
 var button3 = document.querySelector("#btn3");
 var button4 = document.querySelector("#btn4");
 var button5 = document.querySelector("#btn5");
-var Black = document.querySelector('#susBlack');
-var Blue = document.querySelector('#susBlue');
-var Blue = document.querySelector('#susBrown');
-var Cyan = document.querySelector('#susCyan');
-var Green = document.querySelector('#susGreen');
-var Lime = document.querySelector('#susLime');
-var Orange = document.querySelector('#susOrange');
-var Pink = document.querySelector('#susPink');
-var Purple = document.querySelector('#susPurple');
-var Red = document.querySelector('#susRed');
-var White = document.querySelector('#susWhite');
-var Yellow = document.querySelector('#susYellow');
+var Black = document.getElementById('#susBlack');
+var Blue = document.getElementById('#susBlue');
+var Blue = document.getElementById('#susBrown');
+var Cyan = document.getElementById('#susCyan');
+var Green = document.getElementById('#susGreen');
+var Lime = document.getElementById('#susLime');
+var Orange = document.getElementById('#susOrange');
+var Pink = document.getElementById('#susPink');
+var Purple = document.getElementById('#susPurple');
+var Red = document.getElementById('#susRed');
+var White = document.getElementById('#susWhite');
+var Yellow = document.getElementById('#susYellow')
 //
 
 // All the different vars
