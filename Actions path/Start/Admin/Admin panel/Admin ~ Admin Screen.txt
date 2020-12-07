@@ -1,0 +1,5 @@
+Go to Medbay Player
+Go to Navigation Player
+Go to Reactor Player
+Leave Admin Screen
+Keep watching screen
