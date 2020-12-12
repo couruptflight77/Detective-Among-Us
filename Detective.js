@@ -123,56 +123,56 @@ function click(){
         }
         if(chosenAction===3){
             mapedImage = 4
-            gameMessage = ""
-            doAction = ""
+            gameMessage = "3"
+            doAction = "3"
             bns = 1
             console.log("action");
         }
         if(chosenAction===4){
             mapedImage = 5
-            gameMessage = ""
-            doAction = ""
+            gameMessage = "4"
+            doAction = "4"
             bns = 1
             console.log("action");
         }
         if(chosenAction===5){
             mapedImage = 6
-            gameMessage = ""
-            doAction = ""
+            gameMessage = "5"
+            doAction = "5"
             bns = 1
             console.log("action");
         }
         console.log("Game message");
     }
-    if(mapImage === 1){
+    if(mapImage === 2){
         if(chosenAction===1){
             mapedImage = 2
-            gameMessage = ""
-            doAction = ""
+            gameMessage = "6"
+            doAction = "6"
             bns = 1
         }
         if(chosenAction===2){
             mapedImage = 3
-            gameMessage = ""
-            doAction = ""
+            gameMessage = "7"
+            doAction = "7"
             bns = 1
         }
         if(chosenAction===3){
             mapedImage = 4
-            gameMessage = ""
-            doAction = ""
+            gameMessage = "8"
+            doAction = "8"
             bns = 1
         }
         if(chosenAction===4){
             mapedImage = 5
-            gameMessage = ""
-            doAction = ""
+            gameMessage = "9"
+            doAction = "9"
             bns = 1
         }
         if(chosenAction===5){
             mapedImage = 6
-            gameMessage = ""
-            doAction = ""
+            gameMessage = "10"
+            doAction = "10"
             bns = 1
         }
     }
