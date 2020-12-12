@@ -1,5 +1,0 @@
-Go to admin
-Go to weapons
-Go to security
-Go to storage
-Go to electrical

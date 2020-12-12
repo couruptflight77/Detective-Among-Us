@@ -4,8 +4,9 @@ body{
 
 div{
     color: blue;
-    font-size: 2cm;
+    font-size: 1.4cm;
     position: relative;
+    left: 36%;
 }
 
 #image {
@@ -15,7 +16,7 @@ div{
 
 #what{
     position: relative;
-    font-size: 1cm;
+    font-size: 0.9cm;
 }
 
 input{
