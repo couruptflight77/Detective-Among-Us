@@ -10,54 +10,20 @@ var bn3 = ["start", "Go to Security"]
 var bn4 = ["start", "Go to Storage"]
 var bn5 = ["start", "Go to Electrical"]
 
-var colorArray = []
-colorArray[0] = "Red Imposter.png"
-colorArray[1] = "Not Red.png"
-colorArray[2] = "Blue Imposter.png"
-colorArray[3] = "Not Blue.png"
-colorArray[4] = "Green Imposter.png"
-colorArray[5] = "Not Green.png"
-colorArray[6] = "Pink Imposter.png"
-colorArray[7] = "Not Pink.png"
-colorArray[8] = "Orange Imposter.png"
-colorArray[9] = "Not Orange.png"
-colorArray[10] = "Yellow Imposter.png"
-colorArray[11] = "Not Yellow.png"
-colorArray[12] = "Black Imposter.png"
-colorArray[13] = "Not Black.png"
-colorArray[14] = "White Imposter.png"
-colorArray[15] = "Not White.png"
-colorArray[16] = "Purple Imposter.png"
-colorArray[17] = "Not Purple.png"
-colorArray[18] = "Brown Imposter.png"
-colorArray[19] = "Not Brown.png"
-colorArray[20] = "Cyan Imposter.png"
-colorArray[21] = "Not Cyan.png"
-colorArray[22] = "Lime Imposter.png"
-colorArray[23] = "Not Lime.png"
+var imposterBoard = ["Red", "Blue"]
 //
 
 // This is where the html links go
 var image = document.querySelector("img");
-var output = document.querySelector("#output");
+var gameMessageDiv = document.querySelector("#output");
+var whatToDoDiv = document.querySelector("#what");
 var input = document.querySelector("#input");
+var board = document.querySelector("#ImposterBoard");
 var button1 = document.querySelector("#btn1");
 var button2 = document.querySelector("#btn2");
 var button3 = document.querySelector("#btn3");
 var button4 = document.querySelector("#btn4");
 var button5 = document.querySelector("#btn5");
-var Black = document.getElementById('#susBlack');
-var Blue = document.getElementById('#susBlue');
-var Blue = document.getElementById('#susBrown');
-var Cyan = document.getElementById('#susCyan');
-var Green = document.getElementById('#susGreen');
-var Lime = document.getElementById('#susLime');
-var Orange = document.getElementById('#susOrange');
-var Pink = document.getElementById('#susPink');
-var Purple = document.getElementById('#susPurple');
-var Red = document.getElementById('#susRed');
-var White = document.getElementById('#susWhite');
-var Yellow = document.getElementById('#susYellow')
 //
 
 // All the different vars
@@ -76,6 +42,8 @@ var purpleSus = 1
 var redSus = 1
 var yellowSus = 1
 var whiteSus = 1
+var gameMessage = "Press Start to begin"
+var doAction = "Start"
 //
 
 // This is where the randomised color selector will go based on what colors arn't being used
@@ -108,6 +76,13 @@ function btn5(){
 }
 
 function click(){
+    if(mapImage === 0){
+        if(chosenAction === 1){
+            mapImage = 1
+            gameMessage = "You are in the caffeteria it seems that everyone has gone off to do there tasks but you don't know where they went"
+        }
+        bns = 1
+    }
     if(chosenAction === 1){
         if(mapImage === 0){
             mapImage = 1
@@ -147,19 +122,9 @@ function click(){
     document.querySelector('#btn3').textContent = bn3[bns]
     document.querySelector('#btn4').textContent = bn4[bns]
     document.querySelector('#btn5').textContent = bn5[bns]
+    gameMessageDiv.innerHTML = "<br><em>" + gameMessage + "</em>";
+    whatToDoDiv.innerHTML = "<br><em>" + doAction + "</em>";
     image.src = "images/" + imageArray[mapImage];
-    Black.src = "images/" + colorArray[13 - blackSus];
-    Blue.src = "images/" + colorArray[3 - blueSus];
-    Brown.src = "images/" + colorArray[19 - brownSus];
-    Cyan.src = "images/" + colorArray[21 - cyanSus];
-    Green.src = "images/" + colorArray[5 - greenSus];
-    Lime.src = "images/" + colorArray[23 - limeSus];
-    Orange.src = "images/" + colorArray[9 - orangeSus];
-    Pink.src = "images/" + colorArray[7 - pinkSus];
-    Purple.src = "images/" + colorArray[17 - purpleSus];
-    Red.src = "images/" + colorArray[1 - redSus];
-    White.src = "images/" + colorArray[15 - whiteSus];
-    Yellow.src = "images/" + colorArray[11 - yellowSus];
 }
 
 document.querySelector('#btn1').textContent = bn1[bns]
@@ -168,4 +133,6 @@ document.querySelector('#btn3').textContent = bn3[bns]
 document.querySelector('#btn4').textContent = bn4[bns]
 document.querySelector('#btn5').textContent = bn5[bns]
 image.src = "images/" + imageArray[mapImage];
+gameMessageDiv.innerHTML = "<br><em>" + gameMessage + "</em>";
+whatToDoDiv.innerHTML = "<br><em>" + doAction + "</em>";
 // output.innerHTML = actions[actionsPossible];

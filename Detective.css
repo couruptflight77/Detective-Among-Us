@@ -6,7 +6,6 @@ div{
     color: blue;
     font-size: 2cm;
     position: relative;
-    left: 27%;
 }
 
 #image {
@@ -16,15 +15,17 @@ div{
 
 #what{
     position: relative;
-    left: 41%;
     font-size: 1cm;
 }
 
 input{
     position: relative;
-    left: 43%;
 }
 button{
     position: relative;
     left: 48%;
+}
+p{
+    position: relative;
+    font-size: 0.5cm;
 }
