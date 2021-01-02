@@ -28,7 +28,6 @@ imageArray[24] = "StorageL.png"
 imageArray[25] = "Weapons.png"
 imageArray[26] = "WeaponsL.png"
 imageArray[27] = "ElectricalL.png"
-imageArray[28] = "ElectricalL.png"
 
 gameCode = ""
 
@@ -119,6 +118,7 @@ function click(){
     bn3.shift()
     bn4.shift()
     bn5.shift()
+    //Unoffical
     if(mapImage === 0){
         if(chosenAction === 1){
             mapedImage = 1
@@ -146,7 +146,7 @@ function click(){
         bn4=["Go to Storage"]
         bn5=["Go to Weapons"]
     }
-    
+    //start
     if(mapImage === 1){
         if(chosenAction===1){
             mapedImage = 4
@@ -195,6 +195,7 @@ function click(){
         }
         
     }
+    //admin
     if(mapImage === 4){
         if(chosenAction===1){
             mapedImage = 2
@@ -232,6 +233,7 @@ function click(){
             doAction = ""
         }
     }
+    //Storage
     if(mapImage === 23){
             if(chosenAction===1){
                 mapedImage = 8
@@ -266,6 +268,7 @@ function click(){
                 doAction = ""
             }
         }
+    //admin screen
     if(mapImage === 2){
         if(chosenAction===1){
             mapedImage = 2
@@ -298,6 +301,7 @@ function click(){
             doAction = ""
         }
     }
+    // Electical
     if(mapImage === 3){
         if(chosenAction===1){
             mapedImage = 2
@@ -330,6 +334,7 @@ function click(){
             doAction = ""
         }
     }
+    //Admin L
     if(mapImage === 5){
         if(chosenAction===1){
             mapedImage = 2
@@ -362,6 +367,7 @@ function click(){
             doAction = ""
         }
     }
+    //Caffetteria
     if(mapImage === 6){
         if(chosenAction===1){
             mapedImage = 2
@@ -394,6 +400,7 @@ function click(){
             doAction = ""
         }
     }
+    //Caffetteria L
     if(mapImage === 7){
         if(chosenAction===1){
             mapedImage = 2
@@ -426,6 +433,7 @@ function click(){
             doAction = ""
         }
     }
+    //Cams
     if(mapImage === 8){
         if(chosenAction===1){
             mapedImage = 2
@@ -458,6 +466,7 @@ function click(){
             doAction = ""
         }
     }
+    //Comms
     if(mapImage === 9){
         if(chosenAction===1){
             mapedImage = 2
@@ -490,6 +499,7 @@ function click(){
             doAction = ""
         }
     }
+    //comms L
     if(mapImage === 10){
         if(chosenAction===1){
             mapedImage = 2
@@ -522,6 +532,7 @@ function click(){
             doAction = ""
         }
     }
+    //Madbay
     if(mapImage === 11){
         if(chosenAction===1){
             mapedImage = 2
@@ -554,6 +565,7 @@ function click(){
             doAction = ""
         }
     }
+    //medbay L
     if(mapImage === 12){
         if(chosenAction===1){
             mapedImage = 2
@@ -586,6 +598,7 @@ function click(){
             doAction = ""
         }
     }
+    //Nav
     if(mapImage === 13){
         if(chosenAction===1){
             mapedImage = 2
@@ -618,6 +631,7 @@ function click(){
             doAction = ""
         }
     }
+    //Nav L
     if(mapImage === 14){
         if(chosenAction===1){
             mapedImage = 2
@@ -650,6 +664,7 @@ function click(){
             doAction = ""
         }
     }
+    //o2
     if(mapImage === 15){
         if(chosenAction===1){
             mapedImage = 2
@@ -682,6 +697,7 @@ function click(){
             doAction = ""
         }
     }
+    //o2 L
     if(mapImage === 16){
         if(chosenAction===1){
             mapedImage = 2
@@ -714,6 +730,7 @@ function click(){
             doAction = ""
         }
     }
+    //Reactor
     if(mapImage === 17){
         if(chosenAction===1){
             mapedImage = 2
@@ -746,6 +763,7 @@ function click(){
             doAction = ""
         }
     }
+    //Reactor L 
     if(mapImage === 18){
         if(chosenAction===1){
             mapedImage = 2
@@ -778,6 +796,7 @@ function click(){
             doAction = ""
         }
     }
+    //Security
     if(mapImage === 19){
         if (commSabotage === 1){
             if(chosenAction===1){
@@ -843,6 +862,7 @@ function click(){
             }
         }
     }
+    //Security L
     if(mapImage === 20){
         if(chosenAction===1){
             mapedImage = 2
@@ -875,6 +895,7 @@ function click(){
             doAction = ""
         }
     }
+    //shields
     if(mapImage === 21){
         if(chosenAction===1){
             mapedImage = 2
@@ -907,6 +928,7 @@ function click(){
             doAction = ""
         }
     }
+    //Shields L
     if(mapImage === 22){
         if(chosenAction===1){
             mapedImage = 2
@@ -939,6 +961,7 @@ function click(){
             doAction = ""
         }
     }
+    //storage L
     if(mapImage === 24){
         if(chosenAction===1){
             mapedImage = 2
@@ -971,6 +994,7 @@ function click(){
             doAction = ""
         }
     }
+    //weapons
     if(mapImage === 25){
         if(chosenAction===1){
             mapedImage = 2
@@ -1003,6 +1027,7 @@ function click(){
             doAction = ""
         }
     }
+    //weapons L
     if(mapImage === 26){
         if(chosenAction===1){
             mapedImage = 2
@@ -1035,6 +1060,7 @@ function click(){
             doAction = ""
         }
     }
+    //electrical L
     if(mapImage === 27){
         if(chosenAction===1){
             mapedImage = 2
