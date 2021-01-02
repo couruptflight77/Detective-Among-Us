@@ -30,6 +30,8 @@ imageArray[26] = "WeaponsL.png"
 imageArray[27] = "ElectricalL.png"
 imageArray[28] = "ElectricalL.png"
 
+gameCode = ""
+
 var bn1 = []
 var bn2 = []
 var bn3 = []
@@ -90,7 +92,18 @@ var image = document.querySelector("img");
 var gameMessageDiv = document.querySelector("#output");
 var whatToDoDiv = document.querySelector("#what");
 var input = document.querySelector("#input");
-var detectiveDiv = document.querySelector("#detective")
+var redDiv = document.querySelector('#red')
+var redDiv = document.querySelector('#blue')
+var redDiv = document.querySelector('#cyan')
+var redDiv = document.querySelector('#green')
+var redDiv = document.querySelector('#lime')
+var redDiv = document.querySelector('#yellow')
+var pinkDiv = document.querySelector('#pink')
+var purpleDiv = document.querySelector('#purple')
+var blackDiv = document.querySelector('#black')
+var whiteDiv = document.querySelector('#white')
+var orangeDiv = document.querySelector('#orange')
+var brownDiv = document.querySelector('#brown')
 var button1 = document.querySelector("#btn1");
 var button2 = document.querySelector("#btn2");
 var button3 = document.querySelector("#btn3");
@@ -154,6 +167,11 @@ function btn5(){
 }
 
 function click(){
+    bn1.shift()
+    bn2.shift()
+    bn3.shift()
+    bn4.shift()
+    bn5.shift()
     if(mapImage === 0){
         if(chosenAction === 1){
             mapedImage = 1
@@ -175,8 +193,11 @@ function click(){
             mapedImage = 1
             gameMessage = "You are in the caffeteria it seems that everyone has gone off to do there tasks but you don't know where they went"
         }
-        ;
-        bns = 1
+        bn1=["Go to Admin"]
+        bn2=["Go to Electical"]
+        bn3=["Go to Secutiy"]
+        bn4=["Go to Storage"]
+        bn5=["Go to Weapons"]
     }
     
     if(mapImage === 1){
@@ -184,82 +205,76 @@ function click(){
             mapedImage = 4
             gameMessage = "You walk in Admin you know that you can see where everyone is or you can do other options"
             doAction = "What do you want to do in Admin"
-            bns = 2
-            ;
+            bn1=["Go to Admin"]
+            bn2=["Go to Electical"]
+            bn3=["Go to Secutiy"]
+            bn4=["Go to Storage"]
+            bn5=["Go to Weapons"]
         }
         if(chosenAction===2){
             mapedImage = 28
             gameMessage = "You walk to The Entance of Electrical but wait in the hallway, The lights just turned off do you flee or go in"
             doAction = "What do you want to do at Electrical"
-            bns = 3
-            ;
+            
         }
         if(chosenAction===3){
             mapedImage = 4
             gameMessage = "You walk into Security and You see the camera monitors but you can't see what they display"
             doAction = "What do you do in Security"
-            bns = 1
-            ;
+            
         }
         if(chosenAction===4){
             mapedImage = 5
             gameMessage = "4"
             doAction = "4"
-            bns = 1
-            ;
+            
         }
         if(chosenAction===5){
             mapedImage = 6
             gameMessage = "5"
             doAction = "5"
-            bns = 1
-            ;
         }
-        ;
+        
     }
     if(mapImage === 2){
         if(chosenAction===1){
             mapedImage = 2
             gameMessage = ""
             doAction = ""
-            bns = 1
         }
         if(chosenAction===2){
             mapedImage = 3
             gameMessage = ""
             doAction = ""
-            bns = 1
         }
         if(chosenAction===3){
             mapedImage = 4
             gameMessage = ""
             doAction = ""
-            bns = 1
         }
         if(chosenAction===4){
             mapedImage = 5
             gameMessage = ""
             doAction = ""
-            bns = 1
         }
         if(chosenAction===5){
             mapedImage = 6
             gameMessage = ""
             doAction = ""
-            bns = 1
         }
     }
 
+    gameCode = gameCode + chosenAction
+    console.log(gameCode);
     mapImage = mapedImage
 
-    document.querySelector('#btn1').textContent = bn1[bns]
-    document.querySelector('#btn2').textContent = bn2[bns]
-    document.querySelector('#btn3').textContent = bn3[bns]
-    document.querySelector('#btn4').textContent = bn4[bns]
-    document.querySelector('#btn5').textContent = bn5[bns]
+    document.querySelector('#btn1').textContent = bn1[0]
+    document.querySelector('#btn2').textContent = bn2[0]
+    document.querySelector('#btn3').textContent = bn3[0]
+    document.querySelector('#btn4').textContent = bn4[0]
+    document.querySelector('#btn5').textContent = bn5[0]
     gameMessageDiv.innerHTML = "<br><em>" + gameMessage + "</em>";
     whatToDoDiv.innerHTML = "<br><em>" + doAction + "</em>";
-    detectiveDiv.innerHTML = "<br><em>" + susBoard + "</em>";
     image.src = "images/" + imageArray[mapImage];
     console.log(gameMessage);
     console.log(doAction);
@@ -273,7 +288,6 @@ document.querySelector('#btn5').textContent = bn5[bns]
 image.src = "images/" + imageArray[mapImage];
 gameMessageDiv.innerHTML = "<br><em>" + gameMessage + "</em>";
 whatToDoDiv.innerHTML = "<br><em>" + doAction + "</em>";
-detectiveDiv.innerHTML = "<br><em>" + susBoard + "</em>";
 // output.innerHTML = actions[actionsPossible];
 
 mapImage = mapedImage
