@@ -32,53 +32,11 @@ imageArray[28] = "ElectricalL.png"
 
 gameCode = ""
 
-var bn1 = []
-var bn2 = []
-var bn3 = []
-var bn4 = []
-var bn5 = []
-// Start
-bn1[0] = "Start"
-bn2[0] = "Start"
-bn3[0] = "Start"
-bn4[0] = "Start"
-bn5[0] = "Start"
-// Begining
-bn1[1] = "Admin"
-bn2[1] = "Electrical"
-bn3[1] = "Security"
-bn4[1] = "Storage"
-bn5[1] = "Weapons"
-// Admin
-bn1[2] = "Access Admin Panel"
-bn2[2] = "Search For Body"
-bn3[2] = "Return to Caffetteria"
-bn4[2] = "Go to Storage"
-bn5[2] = "Watch the Vent"
-// Electrical
-bn1[3] = "Return to Caffetteria"
-bn2[3] = "Fix Lights"
-bn3[3] = "Go to Security"
-bn4[3] = "Go to Storage"
-bn5[3] = "Watch the Vent"
-// Security
-bn1[4] = "Return to Caffetteria"
-bn2[4] = "Watch Cams"
-bn3[4] = ""
-bn4[4] = ""
-bn5[4] = ""
-// Storage
-bn1[5] = ""
-bn2[5] = ""
-bn3[5] = ""
-bn4[5] = ""
-bn5[5] = ""
-//Weapons
-bn1[6] = ""
-bn2[6] = ""
-bn3[6] = ""
-bn4[6] = ""
-bn5[6] = ""
+var bn1 = ["Start"]
+var bn2 = ["Start"]
+var bn3 = ["Start"]
+var bn4 = ["Start"]
+var bn5 = ["Start"]
 
 var imposterBoard = ["Red", " Blue", " Green", " Yellow", " Orange", " Black", " White", " Purple", " Cyan", " Brown", " Lime", " Pink"]
 var susBoard = ["Red", " Blue", " Green", " Yellow", " Orange", " Black", " White", " Purple", " Cyan", " Brown", " Lime", " Pink"]
@@ -92,18 +50,6 @@ var image = document.querySelector("img");
 var gameMessageDiv = document.querySelector("#output");
 var whatToDoDiv = document.querySelector("#what");
 var input = document.querySelector("#input");
-var redDiv = document.querySelector('#red')
-var redDiv = document.querySelector('#blue')
-var redDiv = document.querySelector('#cyan')
-var redDiv = document.querySelector('#green')
-var redDiv = document.querySelector('#lime')
-var redDiv = document.querySelector('#yellow')
-var pinkDiv = document.querySelector('#pink')
-var purpleDiv = document.querySelector('#purple')
-var blackDiv = document.querySelector('#black')
-var whiteDiv = document.querySelector('#white')
-var orangeDiv = document.querySelector('#orange')
-var brownDiv = document.querySelector('#brown')
 var button1 = document.querySelector("#btn1");
 var button2 = document.querySelector("#btn2");
 var button3 = document.querySelector("#btn3");
@@ -137,6 +83,7 @@ var yellowSus = 1
 var whiteSus = 1
 var gameMessage = "Press Start to begin"
 var doAction = "Start"
+var commSabotage = 0
 //
 
 // This is where the randomised color selector will go based on what colors arn't being used
@@ -205,29 +152,41 @@ function click(){
             mapedImage = 4
             gameMessage = "You walk in Admin you know that you can see where everyone is or you can do other options"
             doAction = "What do you want to do in Admin"
-            bn1=["Go to Admin"]
-            bn2=["Go to Electical"]
-            bn3=["Go to Secutiy"]
+            bn1=["Access Admin Panel"]
+            bn2=["Search For Body"]
+            bn3=["Return to Caffetteria"]
             bn4=["Go to Storage"]
-            bn5=["Go to Weapons"]
+            bn5=["Watch the Vent"]
         }
         if(chosenAction===2){
             mapedImage = 28
             gameMessage = "You walk to The Entance of Electrical but wait in the hallway, The lights just turned off do you flee or go in"
             doAction = "What do you want to do at Electrical"
-            
+            bn1=["Fix Lights"]
+            bn2=["Go to Storage"]
+            bn3=["Go to Caffeteria"]
+            bn4=["Go to Reactor"]
+            bn5=["Watch the Vent"]
         }
         if(chosenAction===3){
-            mapedImage = 4
+            mapedImage = 19
             gameMessage = "You walk into Security and You see the camera monitors but you can't see what they display"
             doAction = "What do you do in Security"
-            
+            bn1=["Watch Cameras"]
+            bn2=["Watch Vent"]
+            bn3=["Go to Caffetteria"]
+            bn4=["Go to Reactor"]
+            bn5=["Go to Medbay"]
         }
         if(chosenAction===4){
-            mapedImage = 5
-            gameMessage = "4"
-            doAction = "4"
-            
+            mapedImage = 23
+            gameMessage = "Your in storage you see no one nearbye"
+            doAction = "What should You do"
+            bn1=["Go to Comms"]
+            bn2=["Go to Electical"]
+            bn3=["Go to Secutiy"]
+            bn4=["Go to Caffeteria"]
+            bn5=["Go to Admin"]
         }
         if(chosenAction===5){
             mapedImage = 6
@@ -236,11 +195,87 @@ function click(){
         }
         
     }
+    if(mapImage === 4){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = "You find no body there is nothing of interest but someone just ran out"
+            doAction = "What should you do"
+            bn1=["Access Admin Panel"]
+            bn2=["Go to Comms"]
+            bn3=["Return to Caffetteria"]
+            bn4=["Go to Storage"]
+            bn5=["Watch the Vent"]            
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 23){
+            if(chosenAction===1){
+                mapedImage = 8
+                gameMessage = "You open the admin screen"
+                console.log("action");
+                doAction = "What should you do"
+                bn1=["Continue to Watch Admin"]
+                bn2=["Go to Navigation"]
+                bn3=["Watch Vent"]
+                bn4=["Go to Medbay"]
+                bn5=["Go to Security"]
+            }
+            if(chosenAction===2){
+                mapedImage = 3
+                gameMessage = "The"
+                doAction = ""
+            }
+            if(chosenAction===3){
+                mapedImage = 19
+                gameMessage = "You walk into security but the comms shut down you can't use the cameras"
+                doAction = "What should you do"
+
+            }
+            if(chosenAction===4){
+                mapedImage = 5
+                gameMessage = ""
+                doAction = ""
+            }
+            if(chosenAction===5){
+                mapedImage = 6
+                gameMessage = ""
+                doAction = ""
+            }
+        }
     if(mapImage === 2){
         if(chosenAction===1){
             mapedImage = 2
-            gameMessage = ""
-            doAction = ""
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
         }
         if(chosenAction===2){
             mapedImage = 3
@@ -263,7 +298,776 @@ function click(){
             doAction = ""
         }
     }
-
+    if(mapImage === 3){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 5){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 6){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 7){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 8){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 9){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 10){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 11){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 12){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 13){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 14){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 15){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 16){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 17){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 18){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 19){
+        if (commSabotage === 1){
+            if(chosenAction===1){
+                mapedImage = 
+                gameMessage = "You open the admin screen"
+                doAction = "What should you do"
+                bn1=["Watch Vent"]
+                bn2=["Go to Reactor"]
+                bn3=["Go to Electrical"]
+                bn4=["Go to Medbay"]
+                bn5=["Go to Caffetteria"]
+            }
+            if(chosenAction===2){
+                mapedImage = 3
+                gameMessage = ""
+                doAction = ""
+            }
+            if(chosenAction===3){
+                mapedImage = 4
+                gameMessage = ""
+                doAction = ""
+            }
+            if(chosenAction===4){
+                mapedImage = 5
+                gameMessage = ""
+                doAction = ""
+            }
+            if(chosenAction===5){
+                mapedImage = 6
+                gameMessage = ""
+                doAction = ""
+            }
+        } else {
+            if(chosenAction===1){
+                mapedImage = 8
+                gameMessage = "You open the admin screen"
+                doAction = "What should you do"
+                bn1=["Continue to Watch Admin"]
+                bn2=["Go to Navigation"]
+                bn3=["Watch Vent"]
+                bn4=["Go to Medbay"]
+                bn5=["Go to Security"]
+            }
+            if(chosenAction===2){
+                mapedImage = 3
+                gameMessage = ""
+                doAction = ""
+            }
+            if(chosenAction===3){
+                mapedImage = 4
+                gameMessage = ""
+                doAction = ""
+            }
+            if(chosenAction===4){
+                mapedImage = 5
+                gameMessage = ""
+                doAction = ""
+            }
+            if(chosenAction===5){
+                mapedImage = 6
+                gameMessage = ""
+                doAction = ""
+            }
+        }
+    }
+    if(mapImage === 20){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 21){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 22){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 24){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 25){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 26){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    if(mapImage === 27){
+        if(chosenAction===1){
+            mapedImage = 2
+            gameMessage = "You open the admin screen"
+            doAction = "What should you do"
+            bn1=["Continue to Watch Admin"]
+            bn2=["Go to Navigation"]
+            bn3=["Watch Vent"]
+            bn4=["Go to Medbay"]
+            bn5=["Go to Security"]
+        }
+        if(chosenAction===2){
+            mapedImage = 3
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===3){
+            mapedImage = 4
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===4){
+            mapedImage = 5
+            gameMessage = ""
+            doAction = ""
+        }
+        if(chosenAction===5){
+            mapedImage = 6
+            gameMessage = ""
+            doAction = ""
+        }
+    }
+    
     gameCode = gameCode + chosenAction
     console.log(gameCode);
     mapImage = mapedImage
@@ -279,7 +1083,6 @@ function click(){
     console.log(gameMessage);
     console.log(doAction);
 }
-
 document.querySelector('#btn1').textContent = bn1[bns]
 document.querySelector('#btn2').textContent = bn2[bns]
 document.querySelector('#btn3').textContent = bn3[bns]
