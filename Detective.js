@@ -258,8 +258,8 @@ function click(){
             } else {
                 mapedImage = 24
             }
-            gameMessage = ""
-            doAction = ""
+            gameMessage = "You walk into storage"
+            doAction = "What do you do"
         }
         if(chosenAction===5){
             if(lightsSabotage){
@@ -313,7 +313,7 @@ function click(){
                 gameMessage = ""
                 doAction = ""
             }
-            commSabotage = 1
+            commSabotage = getRandomInt(2)
         }
     //admin screen
     if(mapImage === 2){
