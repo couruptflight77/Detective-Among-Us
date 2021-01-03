@@ -3,7 +3,7 @@ var imageArray = []
 imageArray[0] = "Disclamer.png"
 imageArray[1] = "startingScreen.jpg"
 imageArray[2] = "Admin Screen.jpg"
-imageArray[3] = "Electrical.jpg"
+imageArray[3] = "Electrical.png"
 imageArray[4] = "Admin.png"
 imageArray[5] = "AdminL.png"
 imageArray[6] = "Caffetteria.png"
@@ -49,6 +49,7 @@ var image = document.querySelector("img");
 var gameMessageDiv = document.querySelector("#output");
 var whatToDoDiv = document.querySelector("#what");
 var input = document.querySelector("#input");
+var detectiveDiv = document.querySelector("#detective");
 var button1 = document.querySelector("#btn1");
 var button2 = document.querySelector("#btn2");
 var button3 = document.querySelector("#btn3");
@@ -83,6 +84,7 @@ var whiteSus = 1
 var gameMessage = "Press Start to begin"
 var doAction = "Start"
 var commSabotage = 0
+var lightsSabotage = 0
 //
 
 // This is where the randomised color selector will go based on what colors arn't being used
@@ -142,14 +144,18 @@ function click(){
         }
         bn1=["Go to Admin"]
         bn2=["Go to Electical"]
-        bn3=["Go to Secutiy"]
+        bn3=["Go to Security"]
         bn4=["Go to Storage"]
         bn5=["Go to Weapons"]
     }
     //start
     if(mapImage === 1){
         if(chosenAction===1){
-            mapedImage = 4
+            if(lightsSabotage){
+                mapedImage = 4
+            } else {
+                mapedImage = 5
+            }
             gameMessage = "You walk in Admin you know that you can see where everyone is or you can do other options"
             doAction = "What do you want to do in Admin"
             bn1=["Access Admin Panel"]
@@ -159,7 +165,11 @@ function click(){
             bn5=["Watch the Vent"]
         }
         if(chosenAction===2){
-            mapedImage = 28
+            if(lightsSabotage){
+                mapedImage = 27
+            } else {
+                mapedImage = 3
+            }
             gameMessage = "You walk to The Entance of Electrical but wait in the hallway, The lights just turned off do you flee or go in"
             doAction = "What do you want to do at Electrical"
             bn1=["Fix Lights"]
@@ -169,7 +179,11 @@ function click(){
             bn5=["Watch the Vent"]
         }
         if(chosenAction===3){
-            mapedImage = 19
+            if(lightsSabotage){
+                mapedImage = 19
+            } else {
+                mapedImage = 20
+            }
             gameMessage = "You walk into Security and You see the camera monitors but you can't see what they display"
             doAction = "What do you do in Security"
             bn1=["Watch Cameras"]
@@ -179,7 +193,11 @@ function click(){
             bn5=["Go to Medbay"]
         }
         if(chosenAction===4){
-            mapedImage = 23
+            if(lightsSabotage){
+                mapedImage = 24
+            } else {
+                mapedImage = 23
+            }
             gameMessage = "Your in storage you see no one nearbye"
             doAction = "What should You do"
             bn1=["Go to Comms"]
@@ -189,8 +207,12 @@ function click(){
             bn5=["Go to Admin"]
         }
         if(chosenAction===5){
-            mapedImage = 6
-            gameMessage = "5"
+            if(lightsSabotage === 1){
+                mapedImage = 26
+            } else {
+                mapedImage = 25
+            }
+            gameMessage = "You walk into weapons and you see nothing"
             doAction = "5"
         }
         
@@ -208,7 +230,11 @@ function click(){
             bn5=["Go to Security"]
         }
         if(chosenAction===2){
-            mapedImage = 3
+            if(lightsSabotage){
+                mapedImage = 4
+            } else {
+                mapedImage = 5
+            }
             gameMessage = "You find no body there is nothing of interest but someone just ran out"
             doAction = "What should you do"
             bn1=["Access Admin Panel"]
@@ -218,17 +244,29 @@ function click(){
             bn5=["Watch the Vent"]            
         }
         if(chosenAction===3){
-            mapedImage = 4
-            gameMessage = ""
+            if(lightsSabotage){
+                mapedImage = 6
+            } else {
+                mapedImage = 7
+            }
+            gameMessage = "You walk into caffetteria"
             doAction = ""
         }
         if(chosenAction===4){
-            mapedImage = 5
+            if(lightsSabotage){
+                mapedImage = 23
+            } else {
+                mapedImage = 24
+            }
             gameMessage = ""
             doAction = ""
         }
         if(chosenAction===5){
-            mapedImage = 6
+            if(lightsSabotage){
+                mapedImage = 4
+            } else {
+                mapedImage = 5
+            }
             gameMessage = ""
             doAction = ""
         }
@@ -236,26 +274,34 @@ function click(){
     //Storage
     if(mapImage === 23){
             if(chosenAction===1){
-                mapedImage = 8
-                gameMessage = "You open the admin screen"
-                console.log("action");
+                mapedImage = 9
+                gameMessage = "The imposter sabotages comms lucky your there you can turn them off"
                 doAction = "What should you do"
-                bn1=["Continue to Watch Admin"]
+                bn1=["Fix comms"]
                 bn2=["Go to Navigation"]
-                bn3=["Watch Vent"]
-                bn4=["Go to Medbay"]
+                bn3=["Go to Shield"]
+                bn4=["Go to Caffetteria"]
                 bn5=["Go to Security"]
             }
             if(chosenAction===2){
                 mapedImage = 3
-                gameMessage = "The"
-                doAction = ""
+                gameMessage = "You walk into Electrical and the comms go off you better go fix that but the imposter might try something"
+                doAction = "What should you do"
+                bn1=["Go to Security"]
+                bn2=["Go to Navigation"]
+                bn3=["Go to Admin"]
+                bn4=["Go to Medbay"]
+                bn5=["Fix Comms"]
             }
             if(chosenAction===3){
                 mapedImage = 19
                 gameMessage = "You walk into security but the comms shut down you can't use the cameras"
                 doAction = "What should you do"
-
+                bn1=["Fix comms"]
+                bn2=["Go to Reactor"]
+                bn3=["Go to Storage"]
+                bn4=["Go to Caffetteria"]
+                bn5=["Go to Security"]
             }
             if(chosenAction===4){
                 mapedImage = 5
@@ -267,6 +313,7 @@ function click(){
                 gameMessage = ""
                 doAction = ""
             }
+            commSabotage = 1
         }
     //admin screen
     if(mapImage === 2){
@@ -303,36 +350,65 @@ function click(){
     }
     // Electical
     if(mapImage === 3){
-        if(chosenAction===1){
-            mapedImage = 2
-            gameMessage = "You open the admin screen"
-            doAction = "What should you do"
-            bn1=["Continue to Watch Admin"]
-            bn2=["Go to Navigation"]
-            bn3=["Watch Vent"]
-            bn4=["Go to Medbay"]
-            bn5=["Go to Security"]
-        }
-        if(chosenAction===2){
-            mapedImage = 3
-            gameMessage = ""
-            doAction = ""
-        }
-        if(chosenAction===3){
-            mapedImage = 4
-            gameMessage = ""
-            doAction = ""
-        }
-        if(chosenAction===4){
-            mapedImage = 5
-            gameMessage = ""
-            doAction = ""
-        }
-        if(chosenAction===5){
-            mapedImage = 6
-            gameMessage = ""
-            doAction = ""
-        }
+        lightsSabotage = getRandomInt(2)
+        if(commSabotage === 1){
+            if(chosenAction===1){
+                mapedImage = 3
+                gameMessage = "You walk into electrical and the comms sabotage goes off it's noting vital but maybe you should go check"
+                doAction = "What should you do"
+                
+            }
+            if(chosenAction===2){
+                mapedImage = 3
+                gameMessage = ""
+                doAction = ""
+            }
+            if(chosenAction===3){
+                mapedImage = 4
+                gameMessage = ""
+                doAction = ""
+            }
+            if(chosenAction===4){
+                mapedImage = 5
+                gameMessage = ""
+                doAction = ""
+            }
+            if(chosenAction===5){
+                mapedImage = 6
+                gameMessage = ""
+                doAction = ""
+            }
+        } else {
+            if(chosenAction===1)
+                mapedImage = 2
+                gameMessage = "You open the admin screen"
+                doAction = "What should you do"
+                bn1=["Continue to Watch Admin"]
+                bn2=["Go to Navigation"]
+                bn3=["Watch Vent"]
+                bn4=["Go to Medbay"]
+                bn5=["Go to Security"]
+            }
+            if(chosenAction===2){
+                mapedImage = 3
+                gameMessage = ""
+                doAction = ""
+            }
+            if(chosenAction===3){
+                mapedImage = 4
+                gameMessage = ""
+                doAction = ""
+            }
+            if(chosenAction===4){
+                mapedImage = 5
+                gameMessage = ""
+                doAction = ""
+            }
+            if(chosenAction===5){
+                mapedImage = 6
+                gameMessage = ""
+                doAction = ""
+            }
     }
     //Admin L
     if(mapImage === 5){
@@ -800,8 +876,8 @@ function click(){
     if(mapImage === 19){
         if (commSabotage === 1){
             if(chosenAction===1){
-                mapedImage = 
-                gameMessage = "You open the admin screen"
+                mapedImage = 8
+                gameMessage = "You open the "
                 doAction = "What should you do"
                 bn1=["Watch Vent"]
                 bn2=["Go to Reactor"]
@@ -1105,6 +1181,7 @@ function click(){
     document.querySelector('#btn5').textContent = bn5[0]
     gameMessageDiv.innerHTML = "<br><em>" + gameMessage + "</em>";
     whatToDoDiv.innerHTML = "<br><em>" + doAction + "</em>";
+    detectiveDiv.innerHTML = "<br><em>" + susBoard + "</em>";
     image.src = "images/" + imageArray[mapImage];
     console.log(gameMessage);
     console.log(doAction);
@@ -1117,6 +1194,7 @@ document.querySelector('#btn5').textContent = bn5[bns]
 image.src = "images/" + imageArray[mapImage];
 gameMessageDiv.innerHTML = "<br><em>" + gameMessage + "</em>";
 whatToDoDiv.innerHTML = "<br><em>" + doAction + "</em>";
+detectiveDiv.innerHTML = "<br><em>" + susBoard + "</em>";
 // output.innerHTML = actions[actionsPossible];
 
 mapImage = mapedImage
